@@ -1,0 +1,35 @@
+Preguntas de Reflexión
+¿Qué ventajas y desventajas tiene la ejecución de programas de manera síncrona versus asíncrona?
+
+Síncrona:
+    Ventajas:
+    -   Simplicidad, es fácil de entender
+    -	Es más fácil de entender, ya que cada tarea espera a que termine la anterior, sabes exactamente cuando y como se ejecutan.
+    Desventajas:
+    -	Ineficiencia: los bloqueos pueden causar tiempo de espera innecesario, que pueden llegar afectar el rendimiento.
+    -	Una operación puede llegar al bloqueo completo del programa
+    -	Incapacidad de gestionar múltiples tareas simultáneamente.
+Asíncrona:
+    Ventajas:
+    -	Permite un uso mas eficiente de los recursos, el programa puede continuar ejecutándose mientras se realizan otras tareas en segundo plano.
+    -	Mejora la experiencia del usuario al evitar bloqueos innecesarios
+    -	Pueden gestionar múltiples tareas a la vez sin bloqueos.
+    Desventajas:
+    -	Son más complejos
+    -	EL seguimiento de ejecución puede ser más complejo de seguir, ya que las tareas no ocurren en un orden simple.
+    -	Mas difícil de depurar, pude ser complicado encontrar y solucionar el problema.
+
+¿Por qué es importante manejar las excepciones al trabajar con procesos?
+
+Manejar excepciones es importante porque ayuda a mantener la estabilidad del programa, evitando que se detenga inesperadamente.
+Con las librerías que se han tenido que utilizar para hacer los ejercicios, con subprocess pueden salir errores al intentar ejecutar un comando que no existe(CalledProcessError)
+Con psutil que el proceso ya no esté en ejecución (NoSuchProcess) o que no se tenga acceso a un determinado por permisos insuficientes (AccessDenied).
+
+¿Qué tipo de problemas se pueden presentar al comunicarse entre procesos? ¿Cómo los has solucionado?
+
+    1.	Conflictos si tanto ambos procesos intentan leer o escribir en el pipe al mismo tiempo.
+        Solución: cerrando los pipes de escritura o lectura después de utilizarlos.
+    2.	El programa se queda esperando indefinidamente al intentar si intenta leer un pipe vacío, ya que si el documento de texto no contiene ninguna información.
+        Solución: comprobar antes si el archivo está vacío, si tiene datos escribe el contenido en el pipe.
+
+
